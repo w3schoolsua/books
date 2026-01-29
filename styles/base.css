@@ -1,0 +1,234 @@
+/* БАЗОВІ НАЛАШТУВАННЯ */
+*, *::before, *::after {box-sizing: border-box}
+html, body {margin: 0;padding: 0}
+
+/* Плавне перемикання теми */
+html, body, .top-header, .main-nav, .archive-sidebar, .archive-content, .site-footer {transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease}
+body {font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.5; background: var(--bg); color: var(--text); transition: background-color .3s ease, color .3s ease}
+a {color: var(--link); text-decoration: none; transition: color .2s ease}
+a:hover {color: var(--link-hover)}
+a:active {color: var(--link-active)}
+a:visited {color: var(--link-visited)}
+
+/* ХЕДЕР (липкий завжди) */
+.top-header {display: flex; align-items: center; justify-content: center; padding: 10px 16px; background: var(--header-bg); box-shadow: 0 2px 4px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 300}
+.logo-block {display: flex; align-items: center; gap: 10px}
+.logo-img {width: 32px; height: 32px}
+.site-title {font-weight: 600; font-size: 1.1rem}
+
+/* ПЕРЕМИКАЧ ТЕМИ (праворуч) */
+.theme-toggle {
+    position: absolute; right: 16px; top: 10px; border: none; background: var(--button-bg); color: var(--button-text); padding: 6px 10px; border-radius: 999px; cursor: pointer; font-size: 0.9rem; transition: background-color .2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.15)}
+.theme-toggle:hover {background: var(--button-bg-hover)}
+
+/* Плавна анімація перемикача теми */
+.theme-toggle {transition: background-color .25s ease, color .25s ease, transform .25s ease}
+.theme-toggle:active {transform: scale(0.92)}
+
+/* БУРГЕР-МЕНЮ */
+.burger-btn {position: absolute;left: 16px;top: 10px;display: none;width: 32px;height: 28px;padding: 0;border: none;background: transparent;cursor: pointer;z-index: 300}
+.burger-btn span {display: block;width: 100%;height: 4px;background: var(--text);border-radius: 4px;margin: 5px 0;transition: transform .35s ease, opacity .35s ease}
+.burger-btn.open span:nth-child(1) {transform: translateY(9px) rotate(45deg)}
+.burger-btn.open span:nth-child(2) {opacity: 0}
+.burger-btn.open span:nth-child(3) {transform: translateY(-9px) rotate(-45deg)}
+
+/* ГОРИЗОНТАЛЬНЕ МЕНЮ */
+.main-nav {display: flex;gap: 10px;padding: 8px 16px;background: var(--nav-bg);border-bottom: 1px solid var(--border);border-top: 1px solid var(--border);z-index: 200}
+.main-nav a {padding: 6px 10px;border-radius: 999px;color: var(--nav-link)}
+.main-nav a:hover {background: var(--nav-link-bg-hover);color: var(--nav-link-hover)}
+
+/* Мобільна версія горизонтального меню */
+@media (max-width: 900px) {
+    .burger-btn {display: block}
+    .main-nav {display: none;flex-direction: column;gap: 0;padding: 0;border-bottom: 1px solid var(--border)}
+    .main-nav.nav-open {display: flex}
+    .main-nav a {padding: 12px 16px;border-bottom: 1px solid var(--border);border-radius: 0}
+    .main-nav a:last-child {border-bottom: none}
+}
+/* ОСНОВНИЙ МАКЕТ */
+.archive-layout {display: flex;gap: 20px;align-items: flex-start;padding: 10px;max-width: 1200px;margin: 0 auto}
+/* FIX flex overflow */
+
+/* САЙДБАР */
+.archive-sidebar {width: 260px;background: var(--sidebar-bg);border-radius: 12px;padding: 5px;box-shadow: 0 2px 6px rgba(0,0,0,0.08)}
+.archive-sidebar h2,h3,h4 {padding: 0 15px}
+
+/* На великих екранах — sticky */
+@media (min-width: 901px) {.archive-sidebar {position: sticky;top: 90px;max-height: calc(100vh - 110px);overflow-y: auto}}
+
+/* МЕНЮ РОКІВ */
+.year-item {padding: 6px 8px;border-radius: 6px;margin-bottom: 4px}
+.year-item:hover {background: var(--accent-bg)}
+.year-item-active {background: var(--accent-bg);font-weight: 600}
+
+/* Меню ліворуч */
+.menu-item {padding: 6px 8px;border-radius: 6px;margin-bottom: 4px}
+.menu-item:hover {background: var(--accent-bg)}
+.menu-item-active {background: var(--accent-bg);font-weight: 600}
+
+/* КОНТЕНТ */
+.archive-content {flex: 1;background: var(--content-bg);border-radius: 12px;padding: 5px 15px;box-shadow: 0 2px 6px rgba(0,0,0,0.06)}
+.post-list-item {padding: 10px 0;border-bottom: 1px solid var(--border)}
+.post-list-item:last-child {border-bottom: none}
+.post-data {font-size: 0.85rem;color: var(--muted);margin-bottom: 4px}
+.post-list-item-title {font-size: 1.5rem;font-weight: 600;margin-bottom: 4px}
+.post-list-item-title a {color: var(--text)}
+.post-list-item-title a:hover {color: var(--accent)}
+.post-list-item-excerpt {font-size: 0.95rem;color: var(--text-muted)}
+
+/* На мобільних — прибираємо верхній відступ, зменшуємо padding */
+@media (max-width: 640px) {
+    .archive-layout {padding: 5px;margin-top: 0;flex-direction: column;}
+    .archive-content {padding: 5px}
+    .archive-sidebar {width: 100%}
+}
+
+/* ФУТЕР */
+.site-footer {padding: 16px;text-align: center;font-size: 0.8rem;color: var(--muted);border-top: 1px solid var(--border);background: var(--footer-bg)}
+
+/* Футер 4 колонки */
+.footer-4col {display: grid;grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));gap: 24px;padding: 24px;background-color: var(--footer-bg);color: var(--text)}
+.footer-col .footer-title {font-weight: 700;margin-bottom: 10px;color: var(--text)}
+.footer-col a {display: block;margin-bottom: 6px;color: var(--text);text-decoration: none}
+.footer-col a:hover {color: var(--accent)}
+.footer-col div {margin-bottom: 6px}
+
+/* Замінює тіні для блоків */
+.archive-sidebar,.archive-content {box-shadow: var(--shadow-card)}
+.top-header {box-shadow: var(--shadow-soft)}
+
+/* Стиль форми зворотного зв’язку */
+.contact-form {display: flex;flex-direction: column;gap: 14px;margin-top: 20px}
+.contact-form label {font-weight: 600;color: var(--text)}
+.contact-form input,.contact-form textarea {width: 100%;padding: 10px 12px;border: 1px solid var(--border);border-radius: 8px;background: var(--content-bg);color: var(--text);font-size: 1rem;transition: border-color .25s ease, box-shadow .25s ease}
+.contact-form input:focus,.contact-form textarea:focus {border-color: var(--accent);box-shadow: 0 0 0 3px rgba(59, 92, 255, 0.25);outline: none}
+.contact-submit {padding: 12px 18px;background: var(--accent);color: #fff;border: none;border-radius: 8px;cursor: pointer;font-size: 1rem;font-weight: 600;transition: background-color .25s ease, transform .2s ease}
+.contact-submit:hover {background: #2f49d8}
+.contact-submit:active {transform: scale(0.97)}
+.form-success {display: none;margin-top: 12px;padding: 12px 16px;background: var(--accent-bg);color: var(--accent);border-left: 4px solid var(--accent);border-radius: 8px;font-weight: 600;opacity: 0;transition: opacity .4s ease}
+.form-success.show {display: block;opacity: 1}
+
+/* Кнопка підняття вгору */
+.scroll-top-btn {position: fixed;bottom: 10px;right: 10px;padding: 10px 15px;font-size: 1.2rem;font-weight: bold;background-color: var(--accent);color: #fff;border: none;border-radius: 10px;cursor: pointer;box-shadow: 2px 4px 12px rgba(0,0,0,0.15);opacity: 0;visibility: hidden;transform: scale(0.95);transition:opacity 0.4s ease,visibility 0.4s ease,transform 0.4s ease,background-color 0.15s ease,box-shadow 0.15s ease;z-index: 1000}
+.scroll-top-btn.show {opacity: 1;visibility: visible;transform: scale(1)}
+.scroll-top-btn:hover {background-color: #2f49d8;box-shadow: var(--scroll-shadow, 5px 5px 15px rgba(0, 0, 0, 0.38));transform: scale(1.05)}
+
+/* Для карток публікацій */
+.post-card {display: flex;gap: 16px;margin-bottom: 20px;background: var(--content-bg);border-radius: 12px;overflow: hidden;box-shadow: 0 2px 6px rgba(0,0,0,0.05);transition: box-shadow .3s ease}
+.post-card:hover {box-shadow: 0 4px 12px rgba(0,0,0,0.1)}
+.post-thumb {width: 140px;height: 100px;object-fit: cover;flex-shrink: 0}
+.post-info {padding: 12px 0;flex-grow: 1}
+.post-title {font-size: 1.1rem;font-weight: 600;margin-bottom: 4px;color: var(--text)}
+.post-date {font-size: 0.9rem;opacity: 0.6;margin-bottom: 6px}
+.post-summary {font-size: 0.95rem;color: var(--text);line-height: 1.5}
+.post-link {display: flex;text-decoration: none;color: inherit}
+
+/* Стиль для публікації на окремій сторінці */
+/* Контейнер */
+.post-container {max-width: 900px;margin: 0 auto;padding: 20px}
+
+/* Основний блок публікації */
+.post-full {background: var(--content-bg);color: var(--text);padding: 24px;border-radius: 12px;box-shadow: 0 2px 6px rgba(0,0,0,0.06)}
+
+/* Заголовок */
+.post-title {font-size: 2rem;margin-bottom: 10px;color: var(--text)}
+
+/* Метадані */
+.post-meta {opacity: 0.7;margin-bottom: 20px;font-size: 0.95rem;color: var(--text)}
+
+.post-meta span {margin-right: 12px}
+
+/* Обкладинка */
+.post-cover {width: 100%;border-radius: 12px;margin-bottom: 20px}
+
+/* Контент */
+.post-content {color: var(--text)}
+.post-content p {margin-bottom: 16px;line-height: 1.7}
+.post-content h2 {margin-top: 24px;margin-bottom: 12px;color: var(--text)}
+.post-content ul {margin-left: 20px;margin-bottom: 16px}
+
+/* PAGER BUTTONS — FIX */
+.pager {display: flex !important;justify-content: space-between !important;margin: 1em 0 !important}
+a.pager-btn {display: inline-block !important;padding: 8px 14px !important;background-color: var(--pager-bg, #e0e0e0) !important;border: 1px solid var(--pager-border, #b5b5b5) !important;color: var(--pager-text, #000000) !important;border-radius: 4px !important;text-decoration: none !important; transition: background-color 0.15s ease, box-shadow 0.15s ease}
+a.pager-btn:hover {background-color: var(--pager-hover, #d0d0d0) !important;box-shadow: var(--pager-shadow)}
+a.pager-btn:active {background-color: var(--pager-active, #c0c0c0) !important}
+
+/* Додані стилі */
+p {margin: 10px 0}
+h1 {font-size: 32px} /*2em*/
+h2 {font-size: 24px} /*1.5em*/
+h3 {font-size: 20px} /*1.25em*/
+h4 {font-size: 16px} /*1em*/
+
+strong {color: var(--strong-color)}
+
+/* Адаптивне зображення */
+img {
+    /* display: block;    Прибирає зайві відступи під зображенням */
+    max-width: 100%;   /* Зображення не виходить за межі контейнера */
+    /*width: 100%;        Дозволяє зображенню масштабуватись */
+    height: auto;      /* Зберігає пропорції */
+    object-fit: cover; /* Акуратне обрізання при фіксованих контейнерах */
+}
+
+/* Адаптивний контейнер із фіксованим співвідношенням сторін */
+.image-wrapper {aspect-ratio: 16 / 9;overflow: hidden;/* Будь-яке співвідношення */}
+.image-wrapper img {width: 100%;height: 100%;object-fit: cover; padding-right: 15px}
+
+/* Вирівнювання зображення */
+img.left {padding:5px 15px 5px 0}
+img.right {padding:5px 0 5px 15px}
+.img-center {display: block;margin-left: auto;margin-right: auto;}
+
+.title-publ {border: 1px black solid; padding: 5px; box-shadow: 0 1px 5px #555}
+hr {border: none;height: 1px;background-color: var(--hr-color);margin: 2rem 0}
+
+/* Вирівнювання */
+.left-align{text-align:left!important}
+.right-align{text-align:right!important}
+.justify{text-align:justify!important}
+.center{text-align:center!important}
+.left{float:left!important}
+.right{float:right!important}
+
+/* Таблиця Зебра */
+table, th, td {border: 1px solid black; border-collapse: collapse}
+th {padding: 10px; text-align: center}
+td {padding: 5px; text-align: center}
+table.zebra tr:nth-child(even) {background-color: #333}
+table.zebra tr:nth-child(odd) {background-color: #666}
+table.zebra th {background-color: #666; color: white}
+tr.small8 {font-size: .8em}
+
+/* Адаптивна таблиця з горизонт. скролингом */
+.table-wrap {display: block;width: 100%;max-width: 100%;overflow-x: auto;overflow-y: hidden;-webkit-overflow-scrolling: touch;}
+.table-wrap table {width: max-content;min-width: 900px;border-collapse: collapse;table-layout: auto;}
+.table-wrap th,.table-wrap td {white-space: normal;word-break: break-word;}
+
+/* Адаптивний відеоплеєр */
+.videowrap {max-width: 720px; margin: 0 auto;}
+.videoblock {position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;}
+.videoblock iframe, object, embed {position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;}
+.video-title {font-size: 2em; text-align: center; color:#00008b;}
+
+/* Мобільна версія */
+@media (max-width: 640px) {
+    h1 {font-size: 28px} /*1.75em*/
+    h2 {font-size: 22px} /*1.375em*/
+    h3 {font-size: 18px} /*1.125em*/
+    h4 {font-size: 16px} /*1em*/
+    p, li {font-size: 17px} /*1.0625em*/
+}
+
+.adver_adup {display:none !important}
+.adver_addown {display:none !important}
+.adver_adinarticle {display: block}
+.adver_adfooter {display:block}
+.adver_adinfeed {display:block}
+.adver {display:none!important}
+.adver2 {display:block}
+.adver3 {display:block}
+.admedia-square-rightbar {display:block}
+.adver_admultiplex1 {display:block}
+.adver_admultiplex_rightbar1 {display:block}
+ins.adsbygoogle[data-ad-status="unfilled"] {display: none !important} /*Приховати блок AdSense, якщо реклама не відображається*/

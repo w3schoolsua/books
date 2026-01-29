@@ -1,0 +1,93 @@
+/* ============================
+   СВІТЛА ТЕМА
+============================ */
+
+:root {
+    --bg: #f3f4f7;
+    --text: #222;
+    --text-muted: #555;
+    --muted: #777;
+    --header-bg: #f3f4f7;
+    --nav-bg: #fff;
+    --sidebar-bg: #fff;
+    --content-bg: #fff;
+    --footer-bg: #f4f4f6;
+    --border: #dde0e6;
+    --nav-link: #444;
+    --nav-link-hover: #111;
+    --nav-link-bg-hover: #e4e7f5;
+    --button-bg: #e4e7f5;
+    --button-bg-hover: #d3d7f0;
+    --button-text: #222;
+    --accent: #3b5cff;
+    --accent-bg: #e4e7ff;
+    --hr-color: rgba(0, 0, 0, 0.15);
+    --strong-color: blue;
+
+    /* посилання */
+    --link:         #0052cc; /* базовий синій */
+    --link-hover:   #1a75ff; /* світліший, яскравіший */
+    --link-active:  #003d99; /* темніший, «натиснутий» */
+    --link-visited: #6f42c1; /* фіолетовий — чітко інший */
+
+    /* кнопки Next/Prev */
+    --pager-bg: #e0e0e0;
+    --pager-border: #b5b5b5;
+    --pager-text: #000000;
+    --pager-hover: #d0d0d0;
+    --pager-active: #c0c0c0;
+    --pager-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+
+    /* Тінь для кнопки підняття вгору */
+    --scroll-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+/* ТЕМНА ТЕМА */
+
+[data-theme="dark"] {
+    --bg: #141821;
+    --text: #e6e6e6;
+    --text-muted: #b5b5b5;
+    --muted: #999;
+
+    --header-bg: #1f2430;
+    --nav-bg: #1b202b;
+    --sidebar-bg: #1b202b;
+    --content-bg: #1b202b;
+    --footer-bg: #1c1c1f;
+
+    --border: #2b3140;
+
+    --nav-link: #d0d4e6;
+    --nav-link-hover: #ffffff;
+    --nav-link-bg-hover: #2b3550;
+
+    --button-bg: #2b3550;
+    --button-bg-hover: #364066;
+    --button-text: #e6e6e6;
+
+    --accent: #8aa4ff;
+    --accent-bg: #2d3550;
+    --hr-color: rgba(255, 255, 255, 0.15);
+    --strong-color: yellow;
+
+    /* посилання */
+    --link:         #7aa2ff; /* світло-синій */
+    --link-hover:   #a8c1ff; /* ще світліший */
+    --link-active:  #5a7dff; /* темніший, насиченіший */
+    --link-visited: #b48cff; /* світло-фіолетовий */
+
+    --shadow-soft: 0 4px 14px rgba(0,0,0,0.45);
+    --shadow-card: 0 2px 8px rgba(0,0,0,0.35);
+
+    /* кнопки Next/Prev */
+    --pager-bg: #0d2a4a;
+    --pager-border: #153f6b;
+    --pager-text: #ffffff;
+    --pager-hover: #123a63;
+    --pager-active: #0b2340;
+    --pager-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+
+    /* Тінь для кнопки підняття вгору */
+    --scroll-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+}
