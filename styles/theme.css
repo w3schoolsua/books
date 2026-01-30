@@ -23,6 +23,7 @@
     --accent-bg: #e4e7ff;
     --hr-color: rgba(0, 0, 0, 0.15);
     --strong-color: blue;
+    --active-color: #003d99;
 
     /* посилання */
     --link:         #0052cc; /* базовий синій */
@@ -70,6 +71,7 @@
     --accent-bg: #2d3550;
     --hr-color: rgba(255, 255, 255, 0.15);
     --strong-color: yellow;
+    --active-color: #5a7dff;
 
     /* посилання */
     --link:         #7aa2ff; /* світло-синій */

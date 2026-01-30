@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакти - Адміністратор сайту Відрадне Чарівне</title>
-    <meta name="description" content="Як з&#8217;вязатись з адміністратором сайту Відардне Чарівне. Email. Контакти. Зворотній зв&#8217;язок">
+    <title>Контакти - Адміністратор сайту Книги українською</title>
+    <meta name="description" content="Як з&#8217;вязатись з адміністратором сайту Книги українською. Email. Контакти. Зворотній зв&#8217;язок">
     <meta name="keywords" content="адміністратор, адмін, зворотній, зв&#8217;язок, email, контакти, лист, повідомлення, написати">
     <link rel="canonical" href="contacts.html">
     <link rel="stylesheet" href="styles/base.css">
@@ -30,22 +30,15 @@
     </button>
     <a href="index.html" class="logo-block">
         <img src="img/logo.svg" class="logo-img" alt="Logo">
-        <span class="site-title">Відрадне Чарівне</span>
+        <span class="site-title">Книги українською</span>
     </a>
     <button id="themeToggle" class="theme-toggle" title="Перемикач теми">🌙</button>
 </header>
 
 <nav class="main-nav" id="mainNav">
     <a href="index.html">Головна</a>
-    <a href="category-jb.html">Архів ЖБ</a>
-    <a href="category-news.html">Новини</a>
-    <a href="category-articles.html">Статті</a>
-    <a href="category-video.html">Відео</a>
-    <a href="category-photo.html">Фото</a>
-    <a href="category-ads.html">Оголошення</a>
-    <a href="category-creat.html">Творчість</a>
     <a href="about.html">Про сайт</a>
-    <a href="../index.html">W3SchoolsUA</a>
+    <a href="https://w3schoolsua.github.io/">W3SchoolsUA</a>
 </nav>
 
 <div class="adver_adup">
@@ -77,12 +70,12 @@
         </form>
         <h3>Соціальні мережі</h3>
         <ul>
-            <li><a href="#" target="_blank">Facebook</a></li>
-            <li><a href="#" target="_blank">Instagram</a></li>
-            <li><a href="#" target="_blank">YouTube</a></li>
+            <li><a href="404.html" target="_blank">Facebook</a></li>
+            <li><a href="404.html" target="_blank">Instagram</a></li>
+            <li><a href="404.html" target="_blank">YouTube</a></li>
         </ul>
         <h3>Інші питання</h3>
-        <p>Якщо вам потрібна додаткова інформація або консультація — звертайтеся у будь-який зручний спосіб.</p>
+        <p>Якщо вам потрібна додаткова інформація або консультація — звертайтеся у будь-який зручний для вас спосіб.</p>
     </main>
 </div>
 
@@ -94,34 +87,27 @@
 </div>
 
 <footer class="site-footer">
-    © <span id="yearRange"></span> Відрадне Чарівне. Усі права захищені.<br>
-    <a href="license.html" class="license-link">Ліцензія</a> / <a href="contacts.html" class="footer-link">Контакти</a>
+    © <span id="yearRange"></span> Книги українською. Усі права захищені.<br>
+    <a href="license.html">Ліцензія</a> / <a href="contacts.html" class="active">Контакти</a>
     <span id="updatedInfo"></span>
 </footer>
 
 <!-- Кнопка підняття вгору -->
 <button id="scrollTopBtn" class="scroll-top-btn" title="Нагору">↑</button>
-
 <script defer src="scripts/all-scripts.js"></script>
-
 <!-- Скрипт надсилання форми (email) - треба вставити реальний ID на formspree.io-->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-
         const form = document.getElementById("contactForm");
         const success = document.getElementById("formSuccess");
-
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
-
             const formData = new FormData(form);
-
             const response = await fetch("https://formspree.io/f/maykzbqg", {
                 method: "POST",
                 body: formData,
                 headers: { "Accept": "application/json" }
             });
-
             if (response.ok) {
                 form.reset();
                 success.classList.add("show");
@@ -132,7 +118,6 @@
                 }, 5000);
             }
         });
-
     });
 </script>
 </body>
