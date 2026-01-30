@@ -1,0 +1,129 @@
+/* Стиль книги */
+    /* ТЕМИ */
+:root {
+    --bg: #fff;
+    --text: #222;
+    --content: #f4f4f4;
+    --accent: #0077ff;
+    --artheader: #515dc4;
+    --header-bg: rgba(255,255,255,0.9);
+    --warm-bg: #1a1712;
+    --warm-text: #e8ddc7;
+    --warm-content: #271919;
+    --transition: 0.35s ease;
+    --hr-color: rgba(0, 0, 0, 0.15);
+    --box-shadow: 1px 1px 5px #9c9c9c;
+    /* посилання */
+    --link:         #0052cc; /* базовий синій */
+    --link-hover:   #1a75ff; /* світліший, яскравіший */
+    --link-active:  #003d99; /* темніший, «натиснутий» */
+    --link-visited: #6f42c1; /* фіолетовий — чітко інший */
+    /* Тінь для кнопки підняття вгору */
+    --scroll-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] {
+    --bg: #121212;
+    --text: #d6d6d6;
+    --content: #232323;
+    --artheader: #6cb2fa;
+    --header-bg: rgba(18,18,18,0.9);
+    --hr-color: rgba(255, 255, 255, 0.15);
+    --box-shadow: 1px 1px 5px #090909;
+    /* посилання */
+    --link:         #7aa2ff; /* світло-синій */
+    --link-hover:   #aaccee; /* ще світліший */
+    --link-active:  #5a7dff; /* темніший, насиченіший */
+    --link-visited: #b48cff; /* світло-фіолетовий */
+}
+[data-theme="warm"] {
+    --bg: var(--warm-bg);
+    --text: var(--warm-text);
+    --content: var(--warm-content);
+    --artheader: #e34f3a;
+    --header-bg: rgba(26,23,18,0.9);
+    --hr-color: rgba(255, 255, 255, 0.15);
+    --box-shadow: 1px 1px 5px #0b0a0a;
+    /* посилання */
+    --link:         #7aa2ff; /* світло-синій */
+    --link-hover:   #a8c1ff; /* ще світліший */
+    --link-active:  #5a7dff; /* темніший, насиченіший */
+    --link-visited: #b48cff; /* світло-фіолетовий */
+}
+/* ОСНОВНІ СТИЛІ */
+body {margin: 0;background: var(--bg);color: var(--text);font-family: "Segoe UI", sans-serif;line-height: 1.5;font-size: 17px;opacity: 0;transition: opacity 0.4s ease, background var(--transition), color var(--transition)}
+body.loaded {opacity: 1}
+footer {margin: 0 auto; border: 1px dashed #666;font-size: 0.8em;}
+/* ХЕДЕР (АВТО-ХОВАННЯ) */
+header {position: fixed;top: 0;left: 0;right: 0;background: var(--header-bg);backdrop-filter: blur(10px);border-bottom: 1px solid #ccc3;padding: 6px 14px;display: flex;justify-content: space-between;align-items: center;z-index: 100;transform: translateY(0);transition: transform 0.3s ease}
+header.hidden {transform: translateY(-100%)}
+.title {font-size: 18px;font-weight: 600}
+/* КНОПКИ У ХЕДЕРІ */
+.controls {display: flex;gap: 10px}
+.icon-btn {background: none;border: none;cursor: pointer;font-size: 22px;color: var(--accent);transition: transform 0.3s ease}
+.icon-btn:hover {transform: scale(1.15)}
+/* ЗМІСТ */
+#content {background-color: var(--content); padding:15px; margin-top: 50px; border-radius: 5px; box-shadow: var(--box-shadow);}
+#toc {margin: 15px 0;padding: 15px;border-left: 3px solid var(--accent); border-top: 2px dashed var(--accent); border-right: 2px dashed var(--accent); border-bottom: 2px dashed var(--accent); background: rgba(0,0,0,0.03);border-radius: 5px}
+#toc a {display: block;padding: 4px 0;color: var(--accent);text-decoration: none;font-size: 15px}
+#toc a:hover {text-decoration: underline}
+/* ТЕКСТ */
+main {max-width: 1200px;margin: auto;padding: 10px}
+h1, h2, h3 {margin-top: 10px;margin-bottom: 10px;color: var(--artheader);line-height: 1.3;text-shadow: 0.5px 0.5px 0.5px #605f5f
+}
+p {margin: 10px 0;text-align: justify}
+a {color: var(--link);text-decoration: none;}
+a:hover {color: var(--link-hover);}
+a:active {color: var(--link-active);}
+a:visited {color: var(--link-visited);}
+hr {border: none;height: 1px;background-color: var(--hr-color);margin: 2rem 0}
+/* Адаптивне зображення */
+img {
+    /* display: block;    Прибирає зайві відступи під зображенням */
+    max-width: 100%;   /* Зображення не виходить за межі контейнера */
+    /*width: 100%;        Дозволяє зображенню масштабуватись */
+    height: auto;      /* Зберігає пропорції */
+    object-fit: cover; /* Акуратне обрізання при фіксованих контейнерах */
+}
+/* Адаптивний контейнер із фіксованим співвідношенням сторін */
+.image-wrapper {aspect-ratio: 16 / 9;overflow: hidden;/* Будь-яке співвідношення */}
+.image-wrapper img {width: 100%;height: 100%;object-fit: cover; padding-right: 15px}
+/* Вирівнювання зображення */
+img.left {padding:5px 15px 5px 0}
+img.right {padding:5px 0 5px 15px}
+.img-center {display: block;margin-left: auto;margin-right: auto;}
+/* Вирівнювання тексту */
+.left-align{text-align:left!important}
+.right-align{text-align:right!important}
+.justify{text-align:justify!important}
+.center{text-align:center!important}
+.left{float:left!important}
+.right{float:right!important}
+/* Таблиця Зебра */
+table, th, td {border: 1px solid black; border-collapse: collapse}
+th {padding: 10px; text-align: center}
+td {padding: 5px; text-align: center;color: white}
+table.zebra tr:nth-child(even) {background-color: #3e3e3e
+}
+table.zebra tr:nth-child(odd) {background-color: #666}
+table.zebra th {background-color: #666; color: white}
+tr.small8 {font-size: .8em}
+/* Адаптивна таблиця з горизонт. скролингом */
+.table-wrap {display: block;width: 100%;max-width: 100%;overflow-x: auto;overflow-y: hidden;-webkit-overflow-scrolling: touch;}
+.table-wrap table {width: max-content;min-width: 900px;border-collapse: collapse;table-layout: auto;}
+.table-wrap th,.table-wrap td {white-space: normal;word-break: break-word;}
+
+/* Кнопка підняття вгору */
+.scroll-top-btn {position: fixed;bottom: 10px;right: 10px;padding: 10px 15px;font-size: 1.2rem;font-weight: bold;background-color: var(--accent);color: #fff;border: none;border-radius: 10px;cursor: pointer;box-shadow: 2px 4px 12px rgba(0,0,0,0.15);opacity: 0;visibility: hidden;transform: scale(0.95);transition:opacity 0.4s ease,visibility 0.4s ease,transform 0.4s ease,background-color 0.15s ease,box-shadow 0.15s ease;z-index: 1000}
+.scroll-top-btn.show {opacity: 1;visibility: visible;transform: scale(1)}
+.scroll-top-btn:hover {background-color: #2f49d8;box-shadow: var(--scroll-shadow, 5px 5px 15px rgba(0, 0, 0, 0.38));transform: scale(1.05)}
+
+/* Мобільна версія */
+@media (max-width: 900px) {
+    h1 {font-size: 1.75em} /*28px*/
+    h2 {font-size: 1.375em } /*22px*/
+    h3 {font-size: 1.125em} /*18px*/
+    body {font-size: 17px} /*1.0625em*/
+    main {padding: 5px}
+    p, li {font-size: 1em} /*17px*/
+    #content {margin-top: 45px;padding:8px;}
+}
