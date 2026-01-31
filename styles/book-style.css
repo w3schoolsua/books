@@ -13,6 +13,7 @@
     --transition: 0.35s ease;
     --hr-color: rgba(0, 0, 0, 0.15);
     --box-shadow: 1px 1px 5px #9c9c9c;
+    --strong-color: blue;
     /* посилання */
     --link:         #0052cc; /* базовий синій */
     --link-hover:   #1a75ff; /* світліший, яскравіший */
@@ -34,6 +35,7 @@
     --link-hover:   #aaccee; /* ще світліший */
     --link-active:  #5a7dff; /* темніший, насиченіший */
     --link-visited: #b48cff; /* світло-фіолетовий */
+    --strong-color: yellow;
 }
 [data-theme="warm"] {
     --bg: var(--warm-bg);
@@ -43,6 +45,7 @@
     --header-bg: rgba(26,23,18,0.9);
     --hr-color: rgba(255, 255, 255, 0.15);
     --box-shadow: 1px 1px 5px #0b0a0a;
+    --strong-color: orange;
     /* посилання */
     --link:         #7aa2ff; /* світло-синій */
     --link-hover:   #a8c1ff; /* ще світліший */
@@ -57,6 +60,8 @@ footer {margin: 0 auto; border: 1px dashed #666;font-size: 0.8em;}
 header {position: fixed;top: 0;left: 0;right: 0;background: var(--header-bg);backdrop-filter: blur(10px);border-bottom: 1px solid #ccc3;padding: 6px 14px;display: flex;justify-content: space-between;align-items: center;z-index: 100;transform: translateY(0);transition: transform 0.3s ease}
 header.hidden {transform: translateY(-100%)}
 .title {font-size: 18px;font-weight: 600}
+.download {margin: 0 auto; border: 1px dashed #666;font-size: 18px;font-weight: 600}
+strong {color: var(--strong-color)}
 /* КНОПКИ У ХЕДЕРІ */
 .controls {display: flex;gap: 10px}
 .icon-btn {background: none;border: none;cursor: pointer;font-size: 22px;color: var(--accent);transition: transform 0.3s ease}
