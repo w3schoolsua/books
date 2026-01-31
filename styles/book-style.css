@@ -50,7 +50,7 @@
     --link-visited: #b48cff; /* світло-фіолетовий */
 }
 /* ОСНОВНІ СТИЛІ */
-body {margin: 0;background: var(--bg);color: var(--text);font-family: "Segoe UI", sans-serif;line-height: 1.5;font-size: 17px;opacity: 0;transition: opacity 0.4s ease, background var(--transition), color var(--transition)}
+body {margin: 0;background: var(--bg);color: var(--text);font-family: "Segoe UI", sans-serif;font-size: 17px;line-height: 1.5;opacity: 0;transition: opacity 0.4s ease, background var(--transition), color var(--transition)}
 body.loaded {opacity: 1}
 footer {margin: 0 auto; border: 1px dashed #666;font-size: 0.8em;}
 /* ХЕДЕР (АВТО-ХОВАННЯ) */
@@ -118,12 +118,11 @@ tr.small8 {font-size: .8em}
 .scroll-top-btn:hover {background-color: #2f49d8;box-shadow: var(--scroll-shadow, 5px 5px 15px rgba(0, 0, 0, 0.38));transform: scale(1.05)}
 
 /* Мобільна версія */
-@media (max-width: 900px) {
+@media (max-width: 640px) {
     h1 {font-size: 1.75em} /*28px*/
     h2 {font-size: 1.375em } /*22px*/
     h3 {font-size: 1.125em} /*18px*/
-    body {font-size: 17px} /*1.0625em*/
-    main {padding: 5px}
-    p, li {font-size: 1em} /*17px*/
-    #content {margin-top: 45px;padding:8px;}
+    p, li {font-size: 1.1em} /*17px*/
+    p {text-align: left}
+    #content {margin-top: 45px;}
 }
