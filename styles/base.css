@@ -222,8 +222,8 @@ tr.small8 {font-size: .8em}
     p, li {font-size: 17px} /*1.0625em*/
 }
 
-.adver_adup {display: block}
-.adver_addown {display: block}
+.adver_adup {display: block;text-align: center}
+.adver_addown {display: block;text-align: center}
 .adver_adinarticle {display: block}
 .adver_adfooter {display:block}
 .adver_adinfeed {display:block}
