@@ -130,4 +130,5 @@ tr.small8 {font-size: .8em}
     p, li {font-size: 1.1em} /*17px*/
     p {text-align: left}
     #content {margin-top: 45px;}
+    .title {font-size: 16px}
 }
