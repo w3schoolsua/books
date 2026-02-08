@@ -24,6 +24,11 @@
     --hr-color: rgba(0, 0, 0, 0.15);
     --strong-color: blue;
     --active-color: #003d99;
+    --table-border: #000;
+    --table-bg: #eee;
+    --table-bg-th: #bbb;
+    --table-bg-even: #ddd;
+    --table-bg-odd: #fff;
 
     /* посилання */
     --link:         #0052cc; /* базовий синій */
@@ -72,6 +77,11 @@
     --hr-color: rgba(255, 255, 255, 0.15);
     --strong-color: yellow;
     --active-color: #5a7dff;
+    --table-border: #666;
+    --table-bg: red;
+    --table-bg-th: #333;
+    --table-bg-even: #222;
+    --table-bg-odd: #666;
 
     /* посилання */
     --link:         #7aa2ff; /* світло-синій */

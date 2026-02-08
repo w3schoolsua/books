@@ -155,6 +155,7 @@ a.pager-btn:active {background-color: var(--pager-active, #c0c0c0) !important}
 
 /* Додані стилі */
 p {margin: 10px 0}
+h1,h2,h3 {text-align: center}
 h1 {font-size: 32px} /*2em*/
 h2 {font-size: 24px} /*1.5em*/
 h3 {font-size: 20px} /*1.25em*/
@@ -194,16 +195,16 @@ hr {border: none;height: 1px;background-color: var(--hr-color);margin: 2rem 0}
 .right{float:right!important}
 
 /* Таблиця Зебра */
-table, th, td {border: 1px solid black; border-collapse: collapse}
+table, th, td {border: 1px solid var(--table-border); border-collapse: collapse}
 th {padding: 10px; text-align: center}
 td {padding: 5px; text-align: center}
-table.zebra tr:nth-child(even) {background-color: #333}
-table.zebra tr:nth-child(odd) {background-color: #666}
-table.zebra th {background-color: #666; color: white}
+table.zebra tr:nth-child(even) {background-color: var(--table-bg-even)}
+table.zebra tr:nth-child(odd) {background-color: var(--table-bg-odd)}
+table.zebra th {background-color: var(--table-bg-th)}
 tr.small8 {font-size: .8em}
 
 /* Адаптивна таблиця з горизонт. скролингом */
-.table-wrap {display: block;width: 100%;max-width: 100%;overflow-x: auto;overflow-y: hidden;-webkit-overflow-scrolling: touch;}
+.table-wrap {display: block;width:900px; max-width: 100%;overflow-x: auto;overflow-y: hidden;-webkit-overflow-scrolling: touch;}
 .table-wrap table {width: max-content;min-width: 900px;border-collapse: collapse;table-layout: auto;}
 .table-wrap th,.table-wrap td {white-space: normal;word-break: break-word;}
 
