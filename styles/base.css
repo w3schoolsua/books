@@ -204,8 +204,8 @@ table.zebra th {background-color: var(--table-bg-th)}
 tr.small8 {font-size: .8em}
 
 /* Адаптивна таблиця з горизонт. скролингом */
-.table-wrap {display: block;width:900px; max-width: 100%;overflow-x: auto;overflow-y: hidden;-webkit-overflow-scrolling: touch;}
-.table-wrap table {width: max-content;min-width: 900px;border-collapse: collapse;table-layout: auto;}
+.table-wrap {display: block;width: 866px;max-width: 100%; margin: auto; overflow-x: auto;overflow-y: hidden;-webkit-overflow-scrolling: touch;}
+.table-wrap table {max-width: 100%;border-collapse: collapse;table-layout: auto;}
 .table-wrap th,.table-wrap td {white-space: normal;word-break: break-word;}
 
 /* Адаптивний відеоплеєр */
@@ -221,6 +221,7 @@ tr.small8 {font-size: .8em}
     h3 {font-size: 18px} /*1.125em*/
     h4 {font-size: 16px} /*1em*/
     p, li {font-size: 17px} /*1.0625em*/
+    .table-wrap {width: 348px;max-width: 100%;font-size: 0.8em}
 }
 
 .adver_adup {display: block;text-align: center}
