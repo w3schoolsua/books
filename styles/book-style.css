@@ -73,8 +73,7 @@ strong {color: var(--strong-color)}
 #toc a:hover {text-decoration: underline}
 /* ТЕКСТ */
 main {max-width: 1200px;margin: auto;padding: 10px}
-h1, h2, h3 {margin-top: 10px;margin-bottom: 10px;color: var(--artheader);line-height: 1.3;text-shadow: 0.5px 0.5px 0.5px #605f5f
-}
+h1, h2, h3 {margin-top: 10px;margin-bottom: 10px;text-align: center; color: var(--artheader);line-height: 1.3;text-shadow: 0.5px 0.5px 0.5px #605f5f}
 p {margin: 10px 0;text-align: justify}
 a {color: var(--link);text-decoration: none;}
 a:hover {color: var(--link-hover);}
@@ -131,4 +130,5 @@ tr.small8 {font-size: .8em}
     p {text-align: left}
     #content {margin-top: 45px;}
     .title {font-size: 16px}
+    footer {font-size: 0.6em;}
 }
