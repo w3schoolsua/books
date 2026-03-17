@@ -21,6 +21,8 @@
     --link-visited: #6f42c1; /* фіолетовий — чітко інший */
     /* Тінь для кнопки підняття вгору */
     --scroll-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
+    /* Фон для спливаючої підказки */
+    --footnotes-bg: #fff; /* білий */
 }
 [data-theme="dark"] {
     --bg: #121212;
@@ -30,6 +32,7 @@
     --header-bg: rgba(18,18,18,0.9);
     --hr-color: rgba(255, 255, 255, 0.15);
     --box-shadow: 1px 1px 5px #090909;
+    --footnotes-bg: #122212;
     /* посилання */
     --link:         #7aa2ff; /* світло-синій */
     --link-hover:   #aaccee; /* ще світліший */
@@ -46,6 +49,7 @@
     --hr-color: rgba(255, 255, 255, 0.15);
     --box-shadow: 1px 1px 5px #0b0a0a;
     --strong-color: orange;
+    --footnotes-bg: #1a1712;
     /* посилання */
     --link:         #7aa2ff; /* світло-синій */
     --link-hover:   #a8c1ff; /* ще світліший */
@@ -81,6 +85,7 @@ a:hover {color: var(--link-hover);}
 a:active {color: var(--link-active);}
 a:visited {color: var(--link-visited);}
 hr {border: none;height: 1px;background-color: var(--hr-color);margin: 2rem 0}
+.footnotes {background-color: var(--footnotes-bg);padding: 0 8px; border: 1px dashed #aaa;}
 /* Адаптивне зображення */
 img {
     /* display: block;    Прибирає зайві відступи під зображенням */
@@ -121,6 +126,36 @@ tr.small8 {font-size: .8em}
 .scroll-top-btn {position: fixed;bottom: 10px;right: 10px;padding: 10px 15px;font-size: 1.2rem;font-weight: bold;background-color: var(--accent);color: #fff;border: none;border-radius: 10px;cursor: pointer;box-shadow: 2px 4px 12px rgba(0,0,0,0.15);opacity: 0;visibility: hidden;transform: scale(0.95);transition:opacity 0.4s ease,visibility 0.4s ease,transform 0.4s ease,background-color 0.15s ease,box-shadow 0.15s ease;z-index: 1000}
 .scroll-top-btn.show {opacity: 1;visibility: visible;transform: scale(1)}
 .scroll-top-btn:hover {background-color: #2f49d8;box-shadow: var(--scroll-shadow, 5px 5px 15px rgba(0, 0, 0, 0.38));transform: scale(1.05)}
+
+/* Стиль віконця підказки */
+.note-popup {
+    position: absolute;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 280px;
+    font-size: 14px;
+    line-height: 1.4;
+    z-index: 1000;
+    display: none; /* з'явиться через JS */
+}
+/* Стиль посилання-цифри */
+.note-ref {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+    padding: 0 2px;
+}
+@media (max-width: 600px) {
+    .note-popup {
+        width: 80%; /* На мобільних вікно буде ширшим для зручності */
+        left: 10% !important; /* Центруємо відносно екрана, а не слова */
+        margin-left: 0;
+    }
+}
 
 /* Мобільна версія */
 @media (max-width: 640px) {

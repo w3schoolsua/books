@@ -175,3 +175,63 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
+
+/* ------------------------------
+   СПЛИВАЮЧА ПІДКАЗКА ДЛЯ ПРИМІТОК
+--------------------------------*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.createElement('div');
+    popup.className = 'note-popup';
+    document.body.appendChild(popup);
+
+    const noteRefs = document.querySelectorAll('.note-ref');
+
+    // Функція для показу
+    function showPopup(element) {
+        const noteId = element.getAttribute('href').substring(1);
+        const noteContent = document.getElementById(noteId);
+
+        if (noteContent) {
+            popup.innerHTML = noteContent.innerHTML;
+            popup.style.display = 'block';
+
+            const rect = element.getBoundingClientRect();
+            popup.style.top = (window.scrollY + rect.top - popup.offsetHeight - 10) + 'px';
+            popup.style.left = (window.scrollX + rect.left - 20) + 'px';
+        }
+    }
+
+    // Функція для приховування
+    function hidePopup() {
+        popup.style.display = 'none';
+    }
+
+    noteRefs.forEach(ref => {
+        // ДЛЯ ДЕСКТОПІВ: Наведення миші
+        ref.addEventListener('mouseenter', function() {
+            showPopup(this);
+        });
+
+        ref.addEventListener('mouseleave', hidePopup);
+
+        // ДЛЯ МОБІЛЬНИХ: Клік (тач)
+        ref.addEventListener('click', function(e) {
+            e.preventDefault(); // ЗАБОРОНЯЄ перехід вниз сторінки
+
+            // Якщо вікно вже відкрите для цього елемента — закриваємо, інакше — показуємо
+            if (popup.style.display === 'block') {
+                hidePopup();
+            } else {
+                showPopup(this);
+            }
+        });
+    });
+
+    // Закривати підказку, якщо клікнути будь-де на екрані поза нею
+    document.addEventListener('click', function(e) {
+        if (![...noteRefs].some(ref => ref.contains(e.target)) && !popup.contains(e.target)) {
+            hidePopup();
+        }
+    });
+});
