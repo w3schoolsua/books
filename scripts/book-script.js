@@ -179,7 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ------------------------------
    СПЛИВАЮЧА ПІДКАЗКА ДЛЯ ПРИМІТОК
 --------------------------------*/
-
 document.addEventListener("DOMContentLoaded", function() {
     const popup = document.createElement('div');
     popup.className = 'note-popup';
@@ -187,7 +186,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const noteRefs = document.querySelectorAll('.note-ref');
 
-    // Функція для показу
     function showPopup(element) {
         const noteId = element.getAttribute('href').substring(1);
         const noteContent = document.getElementById(noteId);
@@ -197,41 +195,56 @@ document.addEventListener("DOMContentLoaded", function() {
             popup.style.display = 'block';
 
             const rect = element.getBoundingClientRect();
-            popup.style.top = (window.scrollY + rect.top - popup.offsetHeight - 10) + 'px';
+            // Позиціонування: над елементом
+            let topPos = window.scrollY + rect.top - popup.offsetHeight - 10;
+
+            // Якщо вікно виходить за верхню межу екрана, показуємо його під елементом
+            if (topPos < window.scrollY) {
+                topPos = window.scrollY + rect.bottom + 10;
+            }
+
+            popup.style.top = topPos + 'px';
             popup.style.left = (window.scrollX + rect.left - 20) + 'px';
         }
     }
 
-    // Функція для приховування
     function hidePopup() {
         popup.style.display = 'none';
     }
 
     noteRefs.forEach(ref => {
-        // ДЛЯ ДЕСКТОПІВ: Наведення миші
+        // Обробка для десктопів
         ref.addEventListener('mouseenter', function() {
             showPopup(this);
         });
 
         ref.addEventListener('mouseleave', hidePopup);
 
-        // ДЛЯ МОБІЛЬНИХ: Клік (тач)
-        ref.addEventListener('click', function(e) {
-            e.preventDefault(); // ЗАБОРОНЯЄ перехід вниз сторінки
-
-            // Якщо вікно вже відкрите для цього елемента — закриваємо, інакше — показуємо
+        // Обробка для мобільних (миттєвий дотик)
+        ref.addEventListener('touchstart', function(e) {
+            // Запобігаємо конфлікту з mouseover та подвійним тапам
+            e.preventDefault();
             if (popup.style.display === 'block') {
                 hidePopup();
             } else {
                 showPopup(this);
             }
+        }, {passive: false});
+
+        // Про всяк випадок для звичайних кліків (якщо touch не спрацював)
+        ref.addEventListener('click', function(e) {
+            e.preventDefault();
+            showPopup(this);
         });
     });
 
-    // Закривати підказку, якщо клікнути будь-де на екрані поза нею
+    // Закриття при кліку в будь-якому місці екрана
     document.addEventListener('click', function(e) {
         if (![...noteRefs].some(ref => ref.contains(e.target)) && !popup.contains(e.target)) {
             hidePopup();
         }
     });
+
+    // Закриття при скролі (зручно для мобільних)
+    document.addEventListener('scroll', hidePopup, {passive: true});
 });
