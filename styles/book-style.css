@@ -23,6 +23,12 @@
     --scroll-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
     /* Фон для спливаючої підказки */
     --footnotes-bg: #fff; /* білий */
+    /* Блок FAQ */
+    --ask-bg: #cef5f2; /* блакитний */
+    --ask-color: #004345; /* темно-зелений */
+    --quest-bg: #f5f5dc; /* світло-жовтий */
+    --quest-color: #004345; /* темно-зелений */
+    --quest-h3-color: #008b8b; /* бірюзовий */
 }
 [data-theme="dark"] {
     --bg: #121212;
@@ -33,6 +39,11 @@
     --hr-color: rgba(255, 255, 255, 0.15);
     --box-shadow: 1px 1px 5px #090909;
     --footnotes-bg: #122212;
+    --ask-bg: #0b103f; /* синій насиченіший */
+    --ask-color: #DCEEE2; /* світло-блакитний */
+    --quest-bg: #013233; /* темно-зелений */
+    --quest-color: #DCEEE2; /* світло-блакитний */
+    --quest-h3-color: #02c7c7; /* світло-бірюзовий */
     /* посилання */
     --link:         #7aa2ff; /* світло-синій */
     --link-hover:   #aaccee; /* ще світліший */
@@ -50,6 +61,12 @@
     --box-shadow: 1px 1px 5px #0b0a0a;
     --strong-color: orange;
     --footnotes-bg: #1a1712;
+    --ask-bg: #0b103f; /* синій насиченіший */
+    --ask-color: #DCEEE2; /* світло-блакитний */
+    --quest-bg: #013233; /* темно-зелений */
+    --quest-color: #DCEEE2; /* світло-блакитний */
+    --quest-h3-color: #02c7c7; /* світло-бірюзовий */
+
     /* посилання */
     --link:         #7aa2ff; /* світло-синій */
     --link-hover:   #a8c1ff; /* ще світліший */
@@ -86,6 +103,12 @@ a:active {color: var(--link-active);}
 a:visited {color: var(--link-visited);}
 hr {border: none;height: 1px;background-color: var(--hr-color);margin: 2rem 0}
 .footnotes {background-color: var(--footnotes-bg);padding: 0 8px; border: 1px dashed #aaa;}
+
+.ask {background-color: var(--ask-bg); color:var(--ask-color); border: 1px solid #999; margin:15px 5px; padding:15px; border-radius: 10px;}
+
+.quest {background-color: var(--quest-bg); color: var(--quest-color); border: 1px solid #999; margin:15px 5px 15px 25px; padding:15px;border-radius: 10px;}
+.quest h3 {padding-left: 24px; text-decoration: underline #aa0000; color:var(quest-h3-color);}
+
 /* Адаптивне зображення */
 img {
     /* display: block;    Прибирає зайві відступи під зображенням */
@@ -168,3 +191,7 @@ tr.small8 {font-size: .8em}
     .title {font-size: 16px}
     footer {font-size: 0.6em;}
 }
+
+/* Реклама */
+.adver_adup {display: block;text-align: center}
+.adver_addown {display: block;text-align: center}
